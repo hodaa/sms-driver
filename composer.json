@@ -1,6 +1,7 @@
 {
     "name": "hoda/sms-driver",
     "description": "SMS package with multiple drivers",
+    "keywords": ["laravel", "sms", "driver", "gateway", "Twilio"],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -9,8 +10,11 @@
             "email": "hoda.hussin@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {},
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.6",
+        "illuminate/support": "~5.3|~6",
+    },
     "autoload": {
         "psr-4": {
             "Hoda\\SMS\\":"src/"
