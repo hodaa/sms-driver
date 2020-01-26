@@ -1,20 +1,31 @@
 <?php
 
-namespace Hoda\SMS;
+namespace  Hoda\SMS\Providers;
 
-use Hoda\SMS\SmsManger;
 use Illuminate\Support\ServiceProvider;
+use Hoda\SMS\SmsManger;
 
-
-class SmsServiceProvider extends ServiceProvider{
-
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
+class SmsServiceProvider extends ServiceProvider
+{
     protected $defer = true;
 
+
+    public function boot(){
+
+        $dist = __DIR__.'/../config/sms.php';
+
+        // If we're installing in to a Lumen project, config_path
+        // won't exist so we can't auto-publish the config
+        if (function_exists('config_path')) {
+            // Publishes config File.
+            $this->publishes([
+                $dist => config_path('sms.php'),
+            ]);
+        }
+
+        // Merge config.
+        $this->mergeConfigFrom($dist, 'sms');
+    }
     /**
      * Register any application services.
      *
