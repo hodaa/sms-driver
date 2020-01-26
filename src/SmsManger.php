@@ -2,58 +2,38 @@
 
 namespace Hoda\SMS;
 
-use \Illuminate\Support\Manager;
-use Hoda\SMS\Drivers;
 
-class SmsManger extends Manager
+class SmsManger
 {
-    public function sayHello()
-    {
-        echo "Hello, sms";
-    }
-
+    /**
+     * @param null $name
+     * @return mixed
+     */
     public function channel($name = null)
     {
         return $this->driver($name);
     }
 
     /**
-     * Create a Nexmo SMS driver instance.
-     *
-     * @return \App\Components\Sms\Drivers\NexmoDriver
-     */
-    public function createNexmoDriver()
-    {
-        return new NexmoDriver(
-            $this->createNexmoClient(),
-            $this->app['config']['sms.nexmo.from']
-        );
-    }
-
-    public function createTwilioDriver()
-    {
-        return new TwilioDriver(
-            $this->createTwilioClient(),
-            $this->app['config']['sms.twilio.from']
-        );
-    }
-
-
-    /**
-     * @inheritDoc
+     * @return string|null
      */
     public function getDefaultDriver()
     {
-       return $this->app['config']['sms.default'] ?? null;
+        return $this->app['config']['sms.default'] ?? null;
     }
 
+    /**
+     * @param null $driver
+     * @return mixed
+     */
     public function driver($driver = null)
     {
         $driver = $driver ?: $this->getDefaultDriver();
 
         if (is_null($driver)) {
             throw new InvalidArgumentException(sprintf(
-                'Unable to resolve NULL driver for [%s].', static::class
+                'Unable to resolve NULL driver for [%s].',
+                static::class
             ));
         }
 
@@ -61,7 +41,7 @@ class SmsManger extends Manager
         // here and cache it so we can return it next time very quickly. If there is
         // already a driver created by this name, we'll just return that instance.
         if (! isset($this->drivers[$driver])) {
-            $this->drivers[$driver] = $this->createDriver($driver);
+            $this->drivers[$driver] = DriverFactory::create($driver);
         }
 
         return $this->drivers[$driver];

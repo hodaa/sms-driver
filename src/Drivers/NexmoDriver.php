@@ -4,7 +4,7 @@ namespace Hoda\SMS\Drivers;
 
 use Nexmo\Client as NexmoClient;
 
-class NexmoDriver extends Driver
+class NexmoDriver
 {
     /**
      * The Nexmo client.
@@ -21,25 +21,59 @@ class NexmoDriver extends Driver
     protected $from;
 
     /**
+     * The phone number  that will receive this sms .
+     * @var
+     */
+    private $recipient;
+
+    /**
+     * The content of Message Sent.
+     * @var
+     */
+    private $message;
+
+    /**
      * Create a new Nexmo driver instance.
      *
      * @param  \Nexmo\Client  $nexmo
      * @param  string  $from
      * @return void
      */
-    public function __construct(NexmoClient $nexmo, $from)
+    public function __construct($from)
     {
-        $this->client = $nexmo;
+        $this->client = app(NexmoClient::class);
+        ;
         $this->from = $from;
     }
 
     /**
-     * {@inheritdoc}
+     * @param $recipient
+     * @return $this
+     */
+    public function to($recipient)
+    {
+        $this->recipient;
+        return $this;
+    }
+
+    /**
+     * @param $message
+     * @return $this
+     */
+    public function message($message)
+    {
+        $this->recipient;
+        return $this;
+    }
+
+    /**
+     * @return \Nexmo\Message\Message
+     * @throws NexmoClient\Exception\Request
+     * @throws NexmoClient\Exception\Server
      */
     public function send()
     {
         return $this->client->message()->send([
-            'type' => 'text',
             'from' => $this->from,
             'to' => $this->recipient,
             'text' => trim($this->message)

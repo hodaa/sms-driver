@@ -20,4 +20,14 @@ The service provider will automatically get registered. Or you may manually add 
 'aliases' => [
   'SMS'   =>  Hoda\SMS\SmsFacade::class,
 ]
+
+php artisan vendor:publish
 ```
+
+## Test
+
+```
+ vendor/bin/phpunit tests
+```
+
+
