@@ -10,13 +10,14 @@ class DriverFactory
      * @param $driver
      * @return mixed
      */
-    public static function create($driver)
+    public static function create($driver,$from)
     {
         $className = \Str::studly($driver) . 'Driver';
-        $obj =  __NAMESPACE__ . "Drivers\\" . $className;
-        if (! $obj instanceof Driver) {
-            throw new InvalidArgumentException("Driver [$driver] not supported.");
-        }
-        return new $obj();
+        $obj =   "Hoda\\SMS\\Drivers\\" . $className;
+
+//        if (!$obj instanceof Driver) {
+//            throw new \InvalidArgumentException("Driver [$driver] not supported.");
+//        }
+        return new $obj($from);
     }
 }

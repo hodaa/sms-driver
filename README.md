@@ -9,6 +9,12 @@ You can install the package via composer:
 composer require hoda/sms
 ```
 
+
+#### Add you creditional to env file 
+NEXMO_KEY=
+NEXMO_SECRET=
+
+
 The service provider will automatically get registered. Or you may manually add the service provider in your `config/app.php` file:
 
 ```php
@@ -28,6 +34,12 @@ php artisan vendor:publish
 
 ```
  vendor/bin/phpunit tests
+```
+
+
+##usage
+```
+ SMS::channel('nexmo')->to('201069642842')->message('This your message')->send();
 ```
 
 

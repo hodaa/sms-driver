@@ -43,7 +43,6 @@ class NexmoDriver implements Driver
     public function __construct($from)
     {
         $this->client = app(NexmoClient::class);
-        ;
         $this->from = $from;
     }
 
@@ -53,7 +52,7 @@ class NexmoDriver implements Driver
      */
     public function to($recipient)
     {
-        $this->recipient;
+        $this->recipient = $recipient;
         return $this;
     }
 
@@ -63,7 +62,7 @@ class NexmoDriver implements Driver
      */
     public function message($message)
     {
-        $this->recipient;
+        $this->message = $message;
         return $this;
     }
 

@@ -2,6 +2,7 @@
 
 namespace Hoda\SMS;
 
+use Hoda\SMS\Factory\DriverFactory;
 
 class SmsManger
 {
@@ -41,7 +42,8 @@ class SmsManger
         // here and cache it so we can return it next time very quickly. If there is
         // already a driver created by this name, we'll just return that instance.
         if (! isset($this->drivers[$driver])) {
-            $this->drivers[$driver] = DriverFactory::create($driver);
+            $from = config('sms.' . $driver . '.from');
+            $this->drivers[$driver] = DriverFactory::create($driver, $from);
         }
 
         return $this->drivers[$driver];
