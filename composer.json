@@ -28,7 +28,10 @@
         "laravel": {
             "providers": [
                 "Hoda\\SMS\\SmsServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "SMS": "Hoda\\SMS\\SmsFacade"
+            }
         }
     }
 }
