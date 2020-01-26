@@ -1,18 +1,17 @@
 <?php
 
-namespace  Hoda\SMS\Providers;
+namespace  Hoda\SMS;
 
 use Illuminate\Support\ServiceProvider;
-use Hoda\SMS\SmsManger;
 
 class SmsServiceProvider extends ServiceProvider
 {
     protected $defer = true;
 
 
-    public function boot(){
-
-        $dist = __DIR__.'/../config/sms.php';
+    public function boot()
+    {
+        $dist = __DIR__ . '/../config/sms.php';
 
         // If we're installing in to a Lumen project, config_path
         // won't exist so we can't auto-publish the config
