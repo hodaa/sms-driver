@@ -2,9 +2,10 @@
 
 namespace Hoda\SMS\Drivers;
 
+use Hoda\SMS\Contracts\Driver;
 use Nexmo\Client as NexmoClient;
 
-class NexmoDriver
+class NexmoDriver implements Driver
 {
     /**
      * The Nexmo client.
