@@ -5,6 +5,7 @@ namespace  Hoda\SMS\Factory;
 use Hoda\SMS\Contracts\Driver;
 use Hoda\SMS\Exceptions\SmsException;
 
+
 class DriverFactory
 {
     /**
@@ -16,7 +17,7 @@ class DriverFactory
         $className = \Str::studly($driver) . 'Driver';
         $obj =   "Hoda\\SMS\\Drivers\\" . $className;
 
-        if (class_exists($obj)) {
+        if (!class_exists($obj)) {
             throw new SmsException("Driver [$driver] not supported.");
         }
 //        if (!$obj instanceof Driver) {
