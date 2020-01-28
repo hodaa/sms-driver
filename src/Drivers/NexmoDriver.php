@@ -2,10 +2,11 @@
 
 namespace Hoda\SMS\Drivers;
 
-use Hoda\SMS\Contracts\Driver;
+use Hoda\SMS\Drivers\Driver;
+
 use Nexmo\Client as NexmoClient;
 
-class NexmoDriver implements Driver
+class NexmoDriver extends Driver
 {
     /**
      * The Nexmo client.
@@ -21,24 +22,11 @@ class NexmoDriver implements Driver
      */
     protected $from;
 
-    /**
-     * The phone number  that will receive this sms .
-     * @var
-     */
-    private $recipient;
-
-    /**
-     * The content of Message Sent.
-     * @var
-     */
-    private $message;
 
     /**
      * Create a new Nexmo driver instance.
      *
-     * @param  \Nexmo\Client  $nexmo
-     * @param  string  $from
-     * @return void
+     * @param string $from
      */
     public function __construct($from)
     {
@@ -46,30 +34,12 @@ class NexmoDriver implements Driver
         $this->from = $from;
     }
 
-    /**
-     * @param $recipient
-     * @return $this
-     */
-    public function to($recipient)
-    {
-        $this->recipient = $recipient;
-        return $this;
-    }
-
-    /**
-     * @param $message
-     * @return $this
-     */
-    public function message($message)
-    {
-        $this->message = $message;
-        return $this;
-    }
 
     /**
      * @return \Nexmo\Message\Message
      * @throws NexmoClient\Exception\Request
      * @throws NexmoClient\Exception\Server
+     * @throws NexmoClient\Exception\Exception
      */
     public function send()
     {

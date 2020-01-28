@@ -3,7 +3,7 @@
 namespace Hoda\SMS;
 
 use Hoda\SMS\Factory\DriverFactory;
-use Hoda\SMS\SmsException\Exceptions;
+use Hoda\Sms\Exceptions\SmsException;
 
 class SmsManger
 {
@@ -21,6 +21,7 @@ class SmsManger
      */
     public function getDefaultDriver()
     {
+
         return $this->app['config']['sms.default'] ?? null;
     }
 
@@ -53,5 +54,15 @@ class SmsManger
         }
 
         return $this->drivers[$driver];
+    }
+
+    /**
+     * Create a Null SMS driver instance.
+     *
+     * @return \App\Components\Sms\Drivers\NullDriver
+     */
+    public function createNullDriver()
+    {
+        return new NullDriver;
     }
 }
