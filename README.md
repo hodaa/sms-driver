@@ -20,10 +20,11 @@ The service provider will automatically get registered. Or you may manually add 
 
 'aliases' => [
   'SMS'   =>  Hoda\SMS\SmsFacade::class,
-]
+];
 ```
 
 Publish config file
+
 ```
 php artisan vendor:publish
 ```
