@@ -12,19 +12,19 @@ final class EmailTest extends TestCase
         \Mockery::close();
     }
 
-    public function testSendNeximoSMS(): void
-    {
-        $mock = m::mock(SMSFacade::class);
-        $response = $mock->shouldReceive('channel')->with('twilio')->andReturn('Hello, sms');
-      //  channel('nexmo')->to('201069642842')->send();
-//        $response = $mock->shouldReceive('sayHello')->andReturn('Hello, sms');
-//        $this->assertEquals('Hello, sms', $mock->sayHello());
-
-
-//        var_dump($response);
-//        exit("hoda");
-//       $resposne= SMS::channel('twilio');
-//        \App\Facades\SMS::sa
-//        $this->assertTrue(true);
-    }
+//    public function testSendNeximoSMS(): void
+//    {
+////        $mock = m::mock(SMSFacade::class);
+////        $response = $mock->shouldReceive('channel')->with('twilio')->andReturn('Hello, sms');
+//      //  channel('nexmo')->to('201069642842')->send();
+////        $response = $mock->shouldReceive('sayHello')->andReturn('Hello, sms');
+////        $this->assertEquals('Hello, sms', $mock->sayHello());
+//
+//
+////        var_dump($response);
+////        exit("hoda");
+////       $resposne= SMS::channel('twilio');
+////        \App\Facades\SMS::sa
+////        $this->assertTrue(true);
+//    }
 }

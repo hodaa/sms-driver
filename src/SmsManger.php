@@ -33,7 +33,7 @@ class SmsManger
     {
         $driver = $driver ?: $this->getDefaultDriver();
 
-        if (is_null($driver)) {
+        if ($driver === null) {
                throw new SmsException(sprintf(
                    'Unable to resolve NULL driver for [%s].',
                    static::class

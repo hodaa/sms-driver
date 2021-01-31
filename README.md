@@ -4,14 +4,11 @@ This package allows you to switch between drivers or use default driver from you
 
 This package can be used in Laravel 5.3 or higher.
 
-
 You can install the package via composer:
 
 ``` bash
 composer require hoda/sms
 ```
-
-
 
 The service provider will automatically get registered. Or you may manually add the service provider in your `config/app.php` file:
 
@@ -31,22 +28,19 @@ Publish config file
 php artisan vendor:publish
 ```
 
-#### Add your driver credential to env file 
+###Add your driver credential to env file 
 
 ``` 
 NEXMO_KEY=
 NEXMO_SECRET=
 ``` 
 
-
 ##usage
 ```
  SMS::channel('nexmo')->to('201069642842')->message('This your message')->send();
 ```
 
-
 ## Test
 ```
  vendor/bin/phpunit tests
 ```
-
