@@ -1,6 +1,9 @@
 ![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b7c8831c69249588f5bb33add5313ce)
 
 # SMS driver
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aba7f28f3f64c59b5d9888f6f33119b)](https://app.codacy.com/gh/hodaa/sms-driver?utm_source=github.com&utm_medium=referral&utm_content=hodaa/sms-driver&utm_campaign=Badge_Grade)
+
 This package allows you to switch between drivers or use default driver from your config file.
 ## Installation
 
