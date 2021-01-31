@@ -23,9 +23,7 @@ The service provider will automatically get registered. Or you may manually add 
 ];
 ```
 
-Publish config file
-
-```
+```shell
 php artisan vendor:publish
 ```
 
