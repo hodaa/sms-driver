@@ -1,3 +1,5 @@
+![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b7c8831c69249588f5bb33add5313ce)
+
 # SMS driver
 This package allows you to switch between drivers or use default driver from your config file.
 ## Installation
@@ -27,19 +29,19 @@ The service provider will automatically get registered. Or you may manually add 
 php artisan vendor:publish
 ```
 
-###Add your driver credential to env file 
+### Add your driver credential to env file 
 
-``` 
+```shell
 NEXMO_KEY=
 NEXMO_SECRET=
 ``` 
 
-##usage
-```
+## usage
+``` dotenv
  SMS::channel('nexmo')->to('201069642842')->message('This your message')->send();
 ```
 
 ## Test
-```
+``` shell
  vendor/bin/phpunit tests
 ```
